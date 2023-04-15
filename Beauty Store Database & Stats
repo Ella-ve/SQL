@@ -1,0 +1,67 @@
+~~ Create a mock beauty store's database ~~
+
+CREATE TABLE "Ellas_Shop" (id INTEGER PRIMARY KEY, Item TEXT, Section TEXT, Stock INTEGER, Aisle INTEGER, RRP INTEGER, Popularity INTEGER);
+
+INSERT INTO "Ellas_Shop" VALUES 
+(1, "Red Lipstick", "Lip", 10, 1, 15, 50),
+(2, "Pink Blush","Cheek", 5, 2, 25, 95),
+(3, "Mauve Eyeshadow", "Eye", 10, 3, 30, 20),
+(4, "Beige Concealer", "Face", 20, 4, 25, 95),
+(5, "Nude Lip Liner", "Lip", 10, 1, 25, 85),
+(6, "Shimmer Eye Shadow Pallete", "Eye", 12, 3, 45, 80),
+(7, "Clear Lip Gloss", "Lip", 30, 1, 10, 97),
+(8, "Translucent Powder", "Face", 15, 4, 25, 75),
+(9, "Coral Blush", "Cheek", 5, 2, 25, 90),
+(10, "Mini Travel Kit", "misc", 10, 4, 50, 20),
+(11, "Highlight Pallete", "Cheek", 10, 4, 45, 45),
+(12, "Bronzer", "Cheek", 15, 2, 20, 70),
+(13, "Black Mascara","Eye", 25, 3, 25, 98),
+(14, "Brown Mascara", "Eye", 15, 3, 25, 65),
+(15, "Colour Match Foundation", "Face", 10, 4, 40, 35);
+
+-- Display entire database, no filters applied.
+SELECT * FROM Ellas_Shop;
+
+-- List all items and their corresponding aisles, listed by aisle ascending.
+SELECT item, aisle 
+FROM Ellas_Shop
+ORDER BY aisle asc;
+
+-- List all items and their respective price (RRP).
+SELECT item, RRP
+FROM Ellas_Shop
+ORDER BY RRP asc;
+
+-- What is the RRP range and average price of the entire store?
+SELECT MAX(RRP), MIN(RRP), ROUND(AVG(RRP)) AS Average_Cost 
+FROM Ellas_Shop;
+
+-- What are the 5 most popular items in the store (and their RRP)?
+SELECT item, RRP, popularity 
+FROM Ellas_Shop
+ORDER BY popularity desc LIMIT 5;
+
+-- What is the average cost of an item in the "Lip" section?
+SELECT ROUND(AVG(RRP)) AS "Average Lip Cost"
+FROM Ellas_Shop
+WHERE section = "Lip";
+
+-- What is the average cost of an item in the "Cheek" section?
+SELECT ROUND(AVG(RRP)) AS "Average Cheek Cost"
+FROM Ellas_Shop
+WHERE section = "Cheek";
+
+-- What is the average cost of an item in the "Eye" section?
+SELECT ROUND(AVG(RRP)) AS "Average Eye Cost"
+FROM Ellas_Shop
+WHERE section = "Eye";
+
+-- What is the average cost of an item in the "Face" section?
+SELECT ROUND(AVG(RRP)) AS "Average Face Cost"
+FROM Ellas_Shop
+WHERE section = "Face";
+
+-- What are the current stock levels of each item, listed from lowest to highest?
+SELECT item AS Stock_List, stock AS Stock_Level
+FROM Ellas_Shop
+ORDER BY stock asc;
