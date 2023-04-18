@@ -80,21 +80,40 @@ INSERT INTO relationships VALUES
 INSERT INTO relationships VALUES
 (12, 11, NULL, NULL, NULL, NULL, NULL, NULL);
 
-Data Questions:
+/* Data Questions */
 
 -- What is the first and surname of every character, as well as their current clan name?
 SELECT first_name AS First_Name, surname AS Surname, current_clan AS Current_Clan
 FROM outlander_characters
 JOIN live_and_work
 ON outlander_characters.id=live_and_work.id
-ORDER BY current_clan
+ORDER BY current_clan;
 
 -- Which locations have what occupations, and what are their names?
 SELECT l.occupation, l.residence, c.first_name, c.surname
 FROM outlander_characters AS c
 JOIN live_and_work AS l
 ON c.id=l.id
-ORDER BY residence
+ORDER BY residence;
+
+-- Where does each character live?
+SELECT first_name, surname, residence
+FROM outlander_characters
+JOIN live_and_work
+ON outlander_characters.id=live_and_work.id;
+
+-- Who's married and who are they married to?
+SELECT a.first_name, a.surname, b.first_name, b.surname 
+FROM relationships
+JOIN outlander_characters a
+ON relationships.wife_id=a.id
+JOIN outlander_characters b
+ON relationships.husband_id=b.id;
+
+-- Which characters have died and which are still living?
+SELECT first_name, surname, birth_year, death AS Death_Year_or_Living 
+FROM outlander_characters
+ORDER BY death desc;
 
 
 
