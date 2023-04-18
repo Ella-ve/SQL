@@ -53,32 +53,31 @@ INSERT INTO live_and_work VALUES
 INSERT INTO live_and_work VALUES
 (12, "Historian", "Clan Fraser", "North Carolina");
 
-CREATE TABLE Relationships (id INTEGER PRIMARY KEY, spouse INTEGER, father INTEGER, mother INTEGER, uncle1 INTEGER, uncle2 INTEGER, brother INTEGER, daughter INTEGER);
-
+CREATE TABLE Relationships (id INTEGER PRIMARY KEY, husband_id INTEGER, wife_id INTEGER);
 INSERT INTO relationships VALUES
-(1, 2, NULL, NULL, NULL, NULL, NULL, 11);
+(1, 2, NULL);
 INSERT INTO relationships VALUES
-(2, 1, NULL, NULL, 6, 5, NULL, 11);
+(2, NULL, 1);
 INSERT INTO relationships VALUES
-(3, 1, NULL, NULL, NULL, NULL, NULL, 11);
+(3, NULL, NULL);
 INSERT INTO relationships VALUES
-(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(4, NULL, NULL);
 INSERT INTO relationships VALUES
-(5, 10, NULL, NULL, NULL, NULL, 6, NULL);
+(5, NULL, 10);
 INSERT INTO relationships VALUES
-(6, 9, NULL, NULL, NULL, NULL, 5, NULL);
+(6, NULL, 9);
 INSERT INTO relationships VALUES
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(7, NULL, NULL);
 INSERT INTO relationships VALUES
-(8, NULL, NULL, NULL, 2, NULL, NULL, NULL);
+(8, NULL, NULL);
 INSERT INTO relationships VALUES
-(9, 6, NULL, NULL, NULL, NULL, NULL, NULL);
+(9, 6, NULL);
 INSERT INTO relationships VALUES
-(10, 5, NULL, NULL, NULL, NULL, NULL, NULL);
+(10, 5, NULL);
 INSERT INTO relationships VALUES
-(11, 12, 2, 1, NULL, NULL, NULL, NULL);
+(11, 12, NULL);
 INSERT INTO relationships VALUES
-(12, 11, NULL, NULL, NULL, NULL, NULL, NULL);
+(12, NULL, 11);
 
 /* Data Questions */
 
