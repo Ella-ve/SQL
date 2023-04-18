@@ -22,6 +22,10 @@ INSERT INTO outlander_characters VALUES
 (9, "Letitia", "Mackenzie", NULL , NULL );
 INSERT INTO outlander_characters VALUES
 (10, "Maura", "Mackenzie", NULL, NULL);
+INSERT INTO outlander_characters VALUES
+(11, "Brianna", "Fraser", 1948, NULL);
+INSERT INTO outlander_characters VALUES
+(12, "Roger", "Mackenzie", 1940, NULL);
 
 CREATE TABLE Live_and_Work (id INTEGER PRIMARY KEY, occupation TEXT, current_clan TEXT, residence TEXT);
 INSERT INTO live_and_work VALUES
@@ -29,7 +33,7 @@ INSERT INTO live_and_work VALUES
 INSERT INTO live_and_work VALUES
 (2, "Soldier", "Clan Fraser", "North Carolina");
 INSERT INTO live_and_work VALUES
-(3, "Professor", "No Clan", "Boston");
+(3, "Historian", "No Clan", "Boston");
 INSERT INTO live_and_work VALUES
 (4, "General", "No Clan", "England");
 INSERT INTO live_and_work VALUES
@@ -44,3 +48,34 @@ INSERT INTO live_and_work VALUES
 (9, "Lady of Leoch", "Clan Mackenzie", "Scotland");
 INSERT INTO live_and_work VALUES
 (10, "War Chieftain's Wife", "Clan Mackenzie", "Scotland");
+INSERT INTO live_and_work VALUES
+(11, "Engineer", "Clan Fraser", "North Carolina");
+INSERT INTO live_and_work VALUES
+(12, "Historian", "Clan Fraser", "North Carolina");
+
+CREATE TABLE Relationships (id INTEGER PRIMARY KEY, spouse INTEGER, father INTEGER, mother INTEGER, uncle1 INTEGER, uncle2 INTEGER, brother INTEGER, daughter INTEGER);
+
+INSERT INTO relationships VALUES
+(1, 2, NULL, NULL, NULL, NULL, NULL, 11);
+INSERT INTO relationships VALUES
+(2, 1, NULL, NULL, 6, 5, NULL, 11);
+INSERT INTO relationships VALUES
+(3, 1, NULL, NULL, NULL, NULL, NULL, 11);
+INSERT INTO relationships VALUES
+(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO relationships VALUES
+(5, 10, NULL, NULL, NULL, NULL, 6, NULL);
+INSERT INTO relationships VALUES
+(6, 9, NULL, NULL, NULL, NULL, 5, NULL);
+INSERT INTO relationships VALUES
+(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO relationships VALUES
+(8, NULL, NULL, NULL, 2, NULL, NULL, NULL);
+INSERT INTO relationships VALUES
+(9, 6, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO relationships VALUES
+(10, 5, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO relationships VALUES
+(11, 12, 2, 1, NULL, NULL, NULL, NULL);
+INSERT INTO relationships VALUES
+(12, 11, NULL, NULL, NULL, NULL, NULL, NULL);
