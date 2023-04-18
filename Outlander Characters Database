@@ -79,3 +79,13 @@ INSERT INTO relationships VALUES
 (11, 12, 2, 1, NULL, NULL, NULL, NULL);
 INSERT INTO relationships VALUES
 (12, 11, NULL, NULL, NULL, NULL, NULL, NULL);
+
+Data Questions:
+What is the first and surname of every character, as well as their current clan name?
+SELECT first_name AS First_Name, surname AS Surname, current_clan AS Current_Clan
+FROM outlander_characters
+JOIN live_and_work
+ON outlander_characters.id=live_and_work.id
+ORDER BY current_clan
+
+
