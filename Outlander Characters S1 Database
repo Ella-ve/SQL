@@ -1,4 +1,4 @@
-/* Create table about the people and what they do here */
+/* Outlander Season 1 Characters Database */
 
 CREATE TABLE Outlander_Characters (id INTEGER PRIMARY KEY, first_name TEXT, surname TEXT, birth_year INTEGER, death INTEGER);
 
